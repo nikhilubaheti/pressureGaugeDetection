@@ -39,9 +39,9 @@ Vec2i detectNeedle(const Mat src, const Vec3f circle)
     Vec3f equationOfLeftLine, equationOfRightLine;
 
     /// Line detection
-    Canny(src, src_canny, 50, 100, 3);
+    Canny(src, src_canny, 40, 100, 3);
 
-    HoughLinesP(src_canny, lines, 1, CV_PI/180, 50, radius/2, radius/10);
+    HoughLinesP(src_canny, lines, 1, CV_PI/180, 40, radius/2, radius/10);
 
     /// Check if line is around center by projecting point on line
     for( size_t i = 0; i < lines.size(); i++ )
@@ -94,7 +94,7 @@ int main(int argc, char** argv)
     Mat src;
 
   /// Read the image
-  src = imread(  "../pressureGaugeDetection/pressureGuage4.jpg", CV_LOAD_IMAGE_COLOR );
+  src = imread(  "../pressureGaugeDetection/pressureGuage.jpg", CV_LOAD_IMAGE_COLOR );
 
   if( !src.data )
     { return -1; }
